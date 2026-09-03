@@ -35,21 +35,32 @@
 ## Testing Cases
 
 ### Endpoint Testing (Postman)
-1. Creating an account with valid data ![Valid data](screeny/screen1.png)
-2. Handling duplicate or simultaneous requests ![Repeat](screeny/screen2.png)
-3. Sending invalid or malformed requests ![Incorrect](screeny/screen3.png)
-4. Logging into an unverified account ![Unverified](screeny/screen4.png)
-5. Receiving the email verification code ![Code](screeny/screen5.png)
-6. Successfully verifying the account ![Verify](screeny/screen6.png)
-7. Attempting verification with an invalid code ![IncorrectCode](screeny/screen7.png)
+1. Creating an account with valid data 
+![Valid data](screeny/screen1.png)
+2. Handling duplicate or simultaneous requests 
+![Repeat](screeny/screen2.png)
+3. Sending invalid or malformed requests 
+![Incorrect](screeny/screen3.png)
+4. Logging into an unverified account 
+![Unverified](screeny/screen4.png)
+5. Receiving the email verification code 
+![Code](screeny/screen5.png)
+6. Successfully verifying the account 
+![Verify](screeny/screen6.png)
+7. Attempting verification with an invalid code 
+![IncorrectCode](screeny/screen7.png)
 
 ### Client-Side Testing
-1. Registering a new account through the UI ![New](screeny/screen8.png)
-2. Receiving the verification code via email ![Code](screeny/screen9.png)
-3. Successfully logging in as a verified user ![Verified](screeny/screen10.png)
+1. Registering a new account through the UI 
+![New](screeny/screen8.png)
+2. Receiving the verification code via email 
+![Code](screeny/screen9.png)
+3. Successfully logging in as a verified user 
+![Verified](screeny/screen10.png)
 
 ### Rate Limiter Testing (cURL)
-- Sending 15 consecutive requests to verify rate limiting ![Limit](screeny/screen11.png)
+- Sending 15 consecutive requests to verify rate limiting 
+![Limit](screeny/screen11.png)
 
 ---
 
