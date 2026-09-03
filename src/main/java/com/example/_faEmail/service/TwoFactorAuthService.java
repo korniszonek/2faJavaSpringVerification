@@ -1,5 +1,6 @@
 package com.example._faEmail.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
@@ -13,6 +14,9 @@ public class TwoFactorAuthService {
     private final JavaMailSender mailSender;
     private final SecureRandom secureRandom = new SecureRandom();
 
+    @Value("${spring.mail.username}")
+    private String fromEmail;
+
     public TwoFactorAuthService(JavaMailSender mailSender) {
         this.mailSender = mailSender;
     }
@@ -25,7 +29,7 @@ public class TwoFactorAuthService {
     public void sendVerificationEmail(String userEmail, String code) {
         SimpleMailMessage message = new SimpleMailMessage();
 
-        message.setFrom("examplemail@gmail.com");
+        message.setFrom(fromEmail);
         message.setTo(userEmail);
         message.setSubject("Please confirm your account");
 

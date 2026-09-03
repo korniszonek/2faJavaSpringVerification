@@ -25,7 +25,7 @@ public class RateLimitFilter extends OncePerRequestFilter {
 
         String path = req.getServletPath();
 
-        if (path.equals("/login") || path.equals("/register")) {
+        if (path.equals("/api/users/login") || path.equals("/api/users/register")) {
 
             String ip = req.getHeader("X-Forwarded-For");
             // if You use cloudflare, docker, nginx the normal gerRemoteAddr() will always return server ip, which will block whole site, thats why we use X-Forwarderd-For

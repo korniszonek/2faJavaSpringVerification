@@ -1,7 +1,6 @@
 package com.example._faEmail.config;
 
 import jakarta.servlet.http.HttpServletResponse;
-import org.apache.catalina.filters.RateLimitFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -58,6 +57,13 @@ public class SecurityConfig {
     }
 
     @Bean
+    public FilterRegistrationBean<RateLimitFilter> rateLimitFilterRegistration(RateLimitFilter filter) {
+        FilterRegistrationBean<RateLimitFilter> registration = new FilterRegistrationBean<>(filter);
+        registration.setEnabled(false);
+        return registration;
+    }
+
+    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         return http
                 .csrf(csrf->csrf.disable())
@@ -65,8 +71,10 @@ public class SecurityConfig {
                 .sessionManagement(sm->sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/login",
-                                "/register"
+                                "/api/users/register",
+                                "/api/users/login",
+                                "/api/users/verify",
+                                "/error"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )

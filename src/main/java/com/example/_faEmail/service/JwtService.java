@@ -33,7 +33,7 @@ public class JwtService {
         *   subject: nickname
         *   issuedAt: date example (12:37 24.08.2026)
         *   claims: user id
-        *   expiration date: date example (12:37 24.08.2026) + 24 hrs (expiration duration)
+        *   expiration date: date example (12:37 24.08.2026) + 24 hrs (expiration duration)(example)
         *   signing key: data structure hashed in Hs256 format with secretkey
         * */
         return Jwts.builder()
